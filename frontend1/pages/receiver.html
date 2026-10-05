@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find Food | ShareBite</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>Share</span><strong>Bite</strong>
+        </div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="#">Available Food</a>
+            <a href="#my-claims">My Claims</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="logoutUser()">
+                Logout
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- ================= RECEIVER DASHBOARD ================= -->
+
+    <main class="dashboard">
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="tagline">
+                    RECEIVER DASHBOARD
+                </p>
+
+                <h1>
+                    Find Food Near You 🍱
+                </h1>
+
+                <p>
+                    Browse available food shared by donors in your community.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="food-search"
+                    placeholder="Search for food..."
+                    onkeyup="searchFood()">
+
+                <button
+                    class="primary-btn"
+                    onclick="searchFood()">
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AVAILABLE FOOD ================= -->
+
+        <section class="donations-section" id="my-claims">
+    <div class="section-heading">
+        <!-- ================= AVAILABLE FOOD ================= -->
+
+<section class="donations-section">
+
+    <div class="section-heading">
+        <div>
+            <h2>Available Food</h2>
+            <p>Food currently available for pickup.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript will add food cards here -->
+    <div
+        class="donation-grid"
+        id="food-list">
+    </div>
+
+</section>
+
+
+<!-- ================= MY CLAIMS ================= -->
+
+<section class="donations-section" id="my-claims">
+
+    <div class="section-heading">
+        <div>
+            <h2>My Claims</h2>
+            <p>Food you have successfully claimed.</p>
+        </div>
+    </div>
+
+    <div
+        class="donation-grid"
+        id="claims-list">
+
+        <p>No food claimed yet.</p>
+
+    </div>
+
+</section>
+
+
+            <!-- JavaScript will add food cards here -->
+
+            <div
+                class="donation-grid"
+                id="food-list">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            ShareBite
+        </h3>
+
+        <p>
+            Good Food • Less Waste • Happier Community
+        </p>
+
+    </footer>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

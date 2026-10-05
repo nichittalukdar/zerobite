@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Donor Dashboard | ShareBite</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>Share</span><strong>Bite</strong>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="#dashboard">
+                Dashboard
+            </a>
+
+            <a href="#my-donations">
+                My Donations
+            </a>
+
+        </nav>
+
+
+        <div class="nav-buttons">
+
+            <button
+                class="login-btn"
+                onclick="logoutUser()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         DONOR DASHBOARD
+    ========================== -->
+
+    <main
+        class="dashboard"
+        id="dashboard">
+
+
+        <!-- DASHBOARD HEADER -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="tagline">
+                    DONOR DASHBOARD
+                </p>
+
+                <h1>
+                    Share Food. Spread Hope. 🍱
+                </h1>
+
+                <p>
+                    Donate surplus food and help reduce
+                    food waste in your community.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="openDonationForm()">
+
+                + Donate Food
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🍱
+                </div>
+
+                <div>
+
+                    <h3>
+                        12
+                    </h3>
+
+                    <p>
+                        Donations
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <h3>
+                        48
+                    </h3>
+
+                    <p>
+                        Meals Shared
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ♻️
+                </div>
+
+                <div>
+
+                    <h3>
+                        8 kg
+                    </h3>
+
+                    <p>
+                        Waste Reduced
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             MY DONATIONS
+        ========================== -->
+
+        <section
+            class="donations-section"
+            id="my-donations">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        My Donations
+                    </h2>
+
+                    <p>
+                        Food you have shared with the community.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!--
+                JavaScript will load
+                donor food cards here.
+            -->
+
+            <div
+                class="donation-grid"
+                id="donation-list">
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             DONATION FORM
+        ========================== -->
+
+        <section
+            class="form-section"
+            id="donation-form">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="tagline">
+                        MAKE A DONATION
+                    </p>
+
+                    <h2>
+                        Share Your Food
+                    </h2>
+
+                    <p>
+                        Enter the details of the food
+                        you would like to donate.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <form
+                id="food-form"
+                class="food-form">
+
+
+                <!-- FOOD NAME -->
+
+                <div class="form-group">
+
+                    <label for="food-name">
+                        Food Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="food-name"
+                        name="food-name"
+                        placeholder="Example: Biryani"
+                        required>
+
+                </div>
+
+
+
+                <!-- QUANTITY -->
+
+                <div class="form-group">
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        placeholder="Example: 5"
+                        min="1"
+                        required>
+
+                </div>
+
+
+
+                <!-- SERVES -->
+
+                <div class="form-group">
+
+                    <label for="serves">
+                        Number of People Served
+                    </label>
+
+                    <input
+                        type="number"
+                        id="serves"
+                        name="serves"
+                        placeholder="Example: 10"
+                        min="1"
+                        required>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Pickup Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="Example: Guwahati"
+                        required>
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        placeholder="Add details about the food..."></textarea>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Submit Donation 🍱
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            ShareBite
+        </h3>
+
+        <p>
+            Good Food • Less Waste • Happier Community
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script
+        src="../js/script.js">
+    </script>
+
+
+</body>
+
+</html>
