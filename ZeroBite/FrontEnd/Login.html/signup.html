@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero Bite - Sign Up</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #1a0b2e; /* fallback while the photo loads */
+      position: relative;
+      isolation: isolate;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -6%;
+      z-index: -1;
+      background-image: url("D:/ZeroBite/Images/signup and login background.png");
+      background-position: center;
+      background-size: cover;
+      animation: slowDrift 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowDrift {
+      from {
+        transform: scale(1.02) translate(0, 0);
+      }
+      to {
+        transform: scale(1.12) translate(-1%, -1%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body::before {
+        animation: none;
+      }
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(26, 11, 46, 0.78),
+        rgba(74, 26, 107, 0.68),
+        rgba(123, 44, 191, 0.62)
+    );
+    z-index: -1;
+    }
+
+    .auth-layout {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .scramble {
+      color: white;
+      text-align: center;
+      font-size: clamp(60px, 20vw, 99px);
+      letter-spacing: 8px;
+      text-shadow: 0 0 24px rgba(199, 125, 255, 0.55);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      padding: 40px 36px;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sub {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 28px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 16px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      font-size: 15px;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #c77dff;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #7b2cbf, #c77dff);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 22px 0;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: white;
+      color: #333;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .google-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-links a {
+      color: #c77dff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .msg {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      min-height: 20px;
+      color: #ffb3c6;
+    }
+
+    .msg.success {
+      color: #69db7c;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="auth-layout">
+    <h1 class="scramble">ZERO BITE</h1>
+
+    <div class="card">
+      <p class="sub">Join Zero Bite and help reduce food waste.</p>
+
+      <form id="signupForm">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        >
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Create a password"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <button type="button" class="google-btn" id="googleButton">
+        <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        Continue with Google
+      </button>
+
+      <div class="footer-links">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+
+      <div class="msg" id="msg" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <script>
+    // Animate the headline when the page loads.
+    const title = document.querySelector(".scramble");
+
+    if (title && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const finalText = title.textContent;
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*";
+      const duration = 2500;
+      const startTime = performance.now();
+
+      function animate(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const lockedCharacters = Math.floor(progress * finalText.length);
+
+        title.textContent = [...finalText]
+          .map((character, index) => {
+            if (character === " " || index < lockedCharacters) {
+              return character;
+            }
+
+            return characters[Math.floor(Math.random() * characters.length)];
+          })
+          .join("");
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          title.textContent = finalText;
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Demo signup behavior. Connect this form to your backend for real accounts.
+    document.getElementById("signupForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("msg");
+
+      if (password.length < 6) {
+        message.textContent = "Password must be at least 6 characters.";
+        message.className = "msg";
+        return;
+      }
+
+      message.textContent = "Demo only: account is not saved yet.";
+      message.className = "msg success";
+      console.log("Signup requested for:", email);
+    });
+
+    // Google sign-in needs Google Identity Services setup and a real client ID.
+    document.getElementById("googleButton").addEventListener("click", function () {
+      document.getElementById("msg").textContent =
+        "Google sign-in needs to be connected to your Google project first.";
+      document.getElementById("msg").className = "msg";
+    });
+  </script>
+</body>
+</html>

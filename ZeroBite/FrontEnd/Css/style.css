@@ -1,0 +1,15 @@
+.auth-layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.scramble {
+  color: white;
+  text-align: center;
+  font-size: clamp(42px, 10vw, 76px);
+  letter-spacing: 8px;
+  text-shadow: 0 0 24px rgba(199, 125, 255, 0.55);
+}
