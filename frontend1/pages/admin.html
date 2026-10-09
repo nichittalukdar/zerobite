@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Admin Dashboard | ZeroBite</title><link rel="stylesheet" href="../css/admin.css"></head>
+<body>
+<div class="admin-app">
+<aside class="admin-sidebar" id="admin-sidebar">
+<div class="admin-sidebar-top"><a class="admin-brand" href="../index.html"><span class="admin-brand-mark">Z</span><span>ZeroBite</span></a>
+<nav class="admin-nav" aria-label="Admin navigation">
+<a href="#overview" class="admin-nav-link active"><span class="admin-nav-icon">01</span><span>Overview</span></a>
+<a href="#donations" class="admin-nav-link"><span class="admin-nav-icon">02</span><span>Donations</span></a>
+<a href="#users" class="admin-nav-link"><span class="admin-nav-icon">03</span><span>Users</span></a>
+<a href="#activity" class="admin-nav-link"><span class="admin-nav-icon">04</span><span>Activity</span></a>
+</nav></div>
+<div class="admin-sidebar-bottom"><a class="admin-sidebar-home" href="../index.html">← Back to site</a><button id="admin-logout" class="admin-logout" type="button"><span>Log out</span><span>↗</span></button></div>
+</aside>
+<div class="admin-overlay" id="admin-overlay"></div>
+<main class="admin-main">
+<header class="admin-topbar"><button id="admin-menu-btn" class="admin-menu-btn" type="button" aria-label="Open admin menu">☰</button><div class="admin-topbar-right"><span class="admin-status"><span class="admin-status-dot"></span>Prototype live</span><span id="admin-avatar" class="admin-avatar">A</span></div></header>
+<div class="admin-content">
+<section id="overview" class="admin-section">
+<div class="admin-page-heading"><div><span class="admin-kicker">ZERO BITE ADMIN</span><h1>Community overview.</h1><p>Monitor food sharing, users and the activity flowing through the prototype.</p></div><span id="admin-date" class="admin-date"></span></div>
+<div class="admin-stats">
+<article class="admin-stat-card"><div class="admin-stat-top"><span class="admin-stat-label">Total users</span><span class="admin-stat-icon">01</span></div><strong id="total-users" class="admin-stat-value">0</strong><span class="admin-stat-detail">Registered accounts</span></article>
+<article class="admin-stat-card"><div class="admin-stat-top"><span class="admin-stat-label">Total donations</span><span class="admin-stat-icon">02</span></div><strong id="total-donations" class="admin-stat-value">0</strong><span class="admin-stat-detail">Food listings</span></article>
+<article class="admin-stat-card"><div class="admin-stat-top"><span class="admin-stat-label">Claimed food</span><span class="admin-stat-icon">03</span></div><strong id="claimed-food" class="admin-stat-value">0</strong><span class="admin-stat-detail">Listings claimed</span></article>
+<article class="admin-stat-card"><div class="admin-stat-top"><span class="admin-stat-label">Available food</span><span class="admin-stat-icon">04</span></div><strong id="available-food" class="admin-stat-value">0</strong><span class="admin-stat-detail">Listings available</span></article>
+</div>
+</section>
+
+<section class="admin-section admin-panel-section">
+<div class="admin-section-heading"><div><h2>Quick actions</h2><p>Jump directly to the information you need.</p></div></div>
+<div class="admin-action-grid">
+<button class="admin-action-card" type="button" data-scroll-target="#donations"><span class="admin-action-icon">01</span><span class="admin-action-content"><strong>Manage donations</strong><small>Search current food listings</small></span><span class="admin-action-arrow">→</span></button>
+<button class="admin-action-card" type="button" data-scroll-target="#users"><span class="admin-action-icon">02</span><span class="admin-action-content"><strong>View users</strong><small>See donor and receiver accounts</small></span><span class="admin-action-arrow">→</span></button>
+<button class="admin-action-card" type="button" data-scroll-target="#activity"><span class="admin-action-icon">03</span><span class="admin-action-content"><strong>Review activity</strong><small>See recent community actions</small></span><span class="admin-action-arrow">→</span></button>
+</div>
+</section>
+
+<section id="donations" class="admin-section admin-panel-section">
+<div class="admin-section-heading"><div><h2>Donations</h2><p>All food listings stored by the prototype.</p></div></div>
+<div class="admin-table-panel"><div class="admin-table-toolbar"><div class="admin-search"><input id="donation-search" type="search" placeholder="Search food, donor or location"></div><div class="admin-filter"><select id="donation-filter"><option value="all">All statuses</option><option value="available">Available</option><option value="claimed">Claimed</option></select></div></div>
+<div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Food</th><th>Donor</th><th>Quantity</th><th>Location</th><th>Status</th><th>Date</th></tr></thead><tbody id="donation-table-body"></tbody></table><div id="donation-empty" class="admin-table-empty">No matching donations.</div></div></div>
+</section>
+
+<section id="users" class="admin-section admin-panel-section">
+<div class="admin-section-heading"><div><h2>Users</h2><p>Accounts created through the ZeroBite prototype.</p></div></div>
+<div class="admin-user-summary"><div class="admin-summary-card"><span>Donors</span><strong id="admin-donor-count">0</strong></div><div class="admin-summary-card"><span>Receivers</span><strong id="admin-receiver-count">0</strong></div><div class="admin-summary-card"><span>Total accounts</span><strong id="admin-total-account-count">0</strong></div></div>
+<div id="admin-user-list" class="admin-user-list"></div>
+</section>
+
+<section id="activity" class="admin-section admin-panel-section">
+<div class="admin-section-heading"><div><h2>Recent activity</h2><p>A simple activity view built from current prototype data.</p></div></div>
+<div id="admin-activity-list" class="admin-activity-list"></div>
+</section>
+
+<section class="admin-impact-strip"><div><span class="admin-kicker">COMMUNITY IMPACT</span><h2>Small listings can create useful local connections.</h2></div><p>ZeroBite's prototype keeps the donor, receiver and admin views connected through shared browser storage. A production deployment should replace this with a secure backend.</p></section>
+</div>
+<footer class="admin-footer"><span>ZeroBite Admin</span><span>Prototype dashboard</span></footer>
+</main>
+</div>
+<div id="admin-toast" class="admin-toast"><span class="admin-toast-icon">✓</span><span id="admin-toast-message"></span></div>
+<script src="../js/auth.js"></script><script src="../js/admin.js"></script>
+</body>
+</html>

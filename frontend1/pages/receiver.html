@@ -1,165 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Find Food | ShareBite</title>
-
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Receiver Dashboard | ZeroBite</title><link rel="stylesheet" href="../css/style.css"></head>
 <body>
-
-    <!-- ================= NAVBAR ================= -->
-
-    <header class="navbar">
-
-        <div class="logo">
-            <span>Share</span><strong>Bite</strong>
-        </div>
-
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="#">Available Food</a>
-            <a href="#my-claims">My Claims</a>
-        </nav>
-
-        <div class="nav-buttons">
-            <button class="login-btn" onclick="logoutUser()">
-                Logout
-            </button>
-        </div>
-
-    </header>
-
-
-    <!-- ================= RECEIVER DASHBOARD ================= -->
-
-    <main class="dashboard">
-
-        <section class="dashboard-header">
-
-            <div>
-
-                <p class="tagline">
-                    RECEIVER DASHBOARD
-                </p>
-
-                <h1>
-                    Find Food Near You 🍱
-                </h1>
-
-                <p>
-                    Browse available food shared by donors in your community.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= SEARCH ================= -->
-
-        <section class="search-section">
-
-            <div class="search-box">
-
-                <input
-                    type="text"
-                    id="food-search"
-                    placeholder="Search for food..."
-                    onkeyup="searchFood()">
-
-                <button
-                    class="primary-btn"
-                    onclick="searchFood()">
-
-                    Search
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= AVAILABLE FOOD ================= -->
-
-        <section class="donations-section" id="my-claims">
-    <div class="section-heading">
-        <!-- ================= AVAILABLE FOOD ================= -->
-
-<section class="donations-section">
-
-    <div class="section-heading">
-        <div>
-            <h2>Available Food</h2>
-            <p>Food currently available for pickup.</p>
-        </div>
-    </div>
-
-    <!-- JavaScript will add food cards here -->
-    <div
-        class="donation-grid"
-        id="food-list">
-    </div>
-
-</section>
-
-
-<!-- ================= MY CLAIMS ================= -->
-
-<section class="donations-section" id="my-claims">
-
-    <div class="section-heading">
-        <div>
-            <h2>My Claims</h2>
-            <p>Food you have successfully claimed.</p>
-        </div>
-    </div>
-
-    <div
-        class="donation-grid"
-        id="claims-list">
-
-        <p>No food claimed yet.</p>
-
-    </div>
-
-</section>
-
-
-            <!-- JavaScript will add food cards here -->
-
-            <div
-                class="donation-grid"
-                id="food-list">
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <h3>
-            ShareBite
-        </h3>
-
-        <p>
-            Good Food • Less Waste • Happier Community
-        </p>
-
-    </footer>
-
-
-    <script src="../js/script.js"></script>
-
+<header class="navbar"><div class="container navbar-inner">
+<a href="../index.html" class="logo"><span class="logo-mark">Z</span><span>ZeroBite</span></a>
+<nav class="nav-links"><a href="../index.html">Home</a><a href="receiver.html" class="active">Dashboard</a><a href="#available-food">Available food</a><a href="#my-claims">My claims</a></nav>
+<div class="nav-actions"><span class="user-greeting">Hi, <strong id="receiver-name">Receiver</strong></span><button id="logout-btn" class="btn btn-secondary" type="button">Log out</button></div>
+<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div><div class="mobile-nav" id="mobile-nav"><a href="../index.html">Home</a><a href="receiver.html">Dashboard</a><a href="#available-food">Available food</a><a href="#my-claims">My claims</a><button id="mobile-logout-btn" class="btn btn-secondary" type="button">Log out</button></div></header>
+<main>
+<section class="dashboard-hero"><div class="container dashboard-hero-inner"><div class="dashboard-hero-copy"><span class="section-kicker">RECEIVER DASHBOARD</span><h1>Find useful food <span>near you.</span></h1><p>Browse available listings, check the details and claim food that works for you.</p><a href="#available-food" class="btn btn-primary">Browse food →</a></div><div class="dashboard-hero-note"><span class="dashboard-note-icon">01</span><div><strong>Check details before claiming.</strong><p>Review quantity, location and pickup date so the listing fits your needs.</p></div></div></div></section>
+<section class="dashboard-stats-section"><div class="container"><div class="dashboard-stats">
+<article class="dashboard-stat-card"><span class="dashboard-stat-label">Available food</span><strong id="available-count" class="dashboard-stat-value">0</strong><span class="dashboard-stat-detail">Current listings</span></article>
+<article class="dashboard-stat-card"><span class="dashboard-stat-label">My claims</span><strong id="claimed-count" class="dashboard-stat-value">0</strong><span class="dashboard-stat-detail">Food you claimed</span></article>
+<article class="dashboard-stat-card"><span class="dashboard-stat-label">Community quantity</span><strong id="community-quantity" class="dashboard-stat-value">0</strong><span class="dashboard-stat-detail">Available quantity</span></article>
+</div></div></section>
+<section class="dashboard-main" id="available-food"><div class="container"><div class="dashboard-section-heading"><div><h2>Available food</h2><p>Find listings shared by donors.</p></div></div>
+<div class="receiver-toolbar"><div class="receiver-search"><input id="food-search" type="search" placeholder="Search food or location" aria-label="Search food"></div><div class="receiver-filter"><select id="food-filter" aria-label="Filter food type"><option value="all">All food types</option><option>Cooked Food</option><option>Packaged Food</option><option>Bakery</option><option>Fruits</option><option>Vegetables</option><option>Other</option></select></div></div>
+<div id="food-list" class="receiver-food-grid"></div>
+<div id="empty-food" class="empty-state" style="display:none"><div class="empty-state-icon">+</div><strong>No food is available right now.</strong><p>New donor listings will appear here.</p></div>
+<div id="no-results" class="empty-state" style="display:none"><strong>No matching food found.</strong><p>Try another search or filter.</p><button id="clear-filters" class="btn btn-secondary" type="button">Clear filters</button></div>
+</div></section>
+<section class="my-donations-section" id="my-claims"><div class="container"><div class="dashboard-section-heading"><div><h2>My claims</h2><p>Listings you have already claimed.</p></div></div><div id="claimed-list" class="claimed-list"></div><div id="empty-claims" class="empty-state"><div class="empty-state-icon">+</div><strong>No claims yet.</strong><p>Claim an available listing to see it here.</p></div></div></section>
+<section class="dashboard-cta"><div class="container dashboard-cta-inner"><div><h2>Every claim helps.</h2><p>Use what is available and keep good food moving.</p></div><a href="#available-food" class="btn btn-light">Browse listings →</a></div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><a href="../index.html" class="logo"><span class="logo-mark">Z</span><span>ZeroBite</span></a><p>Share food. Reduce waste. Strengthen communities.</p></div></footer>
+<div id="toast" class="toast" role="status"><span id="toast-message"></span></div>
+<script src="../js/auth.js"></script><script src="../js/receiver.js"></script>
 </body>
-
 </html>
