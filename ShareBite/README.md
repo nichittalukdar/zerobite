@@ -1,4 +1,4 @@
-# ShareBite
+# Zerobite
 
 ShareBite is a backend-only food-rescue platform connecting food donors with receivers, volunteers, and administrators.
 
